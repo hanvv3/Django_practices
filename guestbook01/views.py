@@ -24,10 +24,12 @@ def deleteform(request):
 
 
 def delete(request):
-    no = request.GET["no"]
+    no = request.POST["no"]                 # 3. 여긴 포스트방식
     password = request.POST["password"]
 
     models.deleteby_no_and_pw(no, password)
+
+    return HttpResponseRedirect('/guestbook01')
 
 
 
